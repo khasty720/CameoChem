@@ -1,24 +1,8 @@
-<div class="container">
-  <div class="row">
-    <h3>Product Categories</h3>
-    <div class="column">
-      <table class="table table-striped">
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Description</th>
-            <th>Category</th>
-            <th colspan="3"></th>
-          </tr>
-        </thead>
-        <tbody>
-          <% @category.groups.each do |group| %>
-          <tr>
-            <%= render 'groups/group', :group => group %>
-          </tr>
-          <% end %>
-        </tbody>
-      </table>
-    </div>
-  </div>
-</div>
+
+<% @category.groups.in_groups_of(2, false) do |group_row| %>
+<tr class='wsite-multicol-tr'>
+  <% group_row.each do |group| %>
+  <%= render 'groups/group', :group => group %>
+  <% end %>
+</tr>
+<% end %>

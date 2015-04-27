@@ -1,11 +1,9 @@
-<td><%= group.name %></td>
-<td><%= group.description %></td>
-<td><%= group.category.name %></td>
-<td>
-  <% if group.image_file_name.present? %>
-  <%= image_tag group.image.url, :size => :med %>
-  <% end %>
+
+<td class='wsite-multicol-col' style='width:50%;padding:0 15px'>
+  <h2><b><%=link_to group.name, group %></b></h2>
+  <span class='imgPusher' style='float:left;height:0px'></span><span style='position:relative;float:left;z-index:10;;clear:left;margin-top:0px;*margin-top:0px'>
+    <%=link_to image_tag(group.image.url, :size => :med), group %>
+    <div style="display: block; font-size: 90%; margin-top: -10px; margin-bottom: 10px; text-align: center;"></div></span>
+  <div class="paragraph" style="display:block;"><%#= group.description %><font size="4"><br /><span></span><br /></font></a></div>
+  <hr style="clear:both;visibility:hidden;width:100%;"></hr>
 </td>
-<td><%= link_to 'Show', group, :class => "btn btn-default"  %></td>
-<td><%= link_to 'Edit', edit_group_path(group), :class => "btn btn-default"  %></td>
-<td><%= link_to 'Destroy', group, method: :delete, data: { confirm: 'Are you sure?'}, :class => "btn btn-default"  %></td>

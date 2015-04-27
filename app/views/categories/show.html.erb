@@ -1,17 +1,17 @@
-<p>
-  <strong>Name:</strong>
-  <%= @category.name %>
-</p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @category.description %>
-</p>
 
 <%#= render @category.groups %>
-<%= render 'group_table' %>
+<h2 style="text-align: center;"><b><%= @category.name %></b></h2>
+</br>
 
-<p>
-<%= link_to 'Groups', groups_path %>
-<%= link_to 'Back', categories_path %>
-</p>
+<div>
+  <div class="wsite-multicol"><div class='wsite-multicol-table-wrap' style='margin:0 -15px'>
+
+  <table class='wsite-multicol-table'>
+    <tbody class='wsite-multicol-tbody'>
+
+      <%= render 'group_table' %>
+
+    </tbody>
+  </table>
+</div></div></div>`

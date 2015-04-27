@@ -3,9 +3,10 @@
 @import "bootstrap";
 
 
+
 // ----- Typography ------
 
-h1, h2, h3, h4, h5, h6 {
+/*h1, h2, h3, h4, h5, h6 {
   line-height: 1;
 }
 
@@ -30,8 +31,10 @@ p {
   font-size: 1.2em;
   line-height: 1.5em;
   text-align: left;
-}
+}*/
 //----------------------
+
+/*
 
 // make all images responsive by default
 img {
@@ -129,7 +132,7 @@ textarea {
   @extend .btn-primary;
   @extend .btn-lg;
   }
-*/
+
 
 // apply styles to HTML elements
 // to make views framework-neutral
@@ -149,6 +152,7 @@ section {
   }
 //--------------------------------
 
+*/
 
   // Styles for form views
   // using Bootstrap
@@ -187,6 +191,8 @@ section {
   }
 
 //--------- Footer ------------
+
+/*
 footer {
   margin-top: 45px;
   padding-top: 5px;
@@ -216,3 +222,5 @@ footer ul li {
   margin-left: 15px;
 }
 //------------------------------
+
+*/

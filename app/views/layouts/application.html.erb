@@ -2,29 +2,74 @@
 <html>
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= content_for?(:title) ? yield(:title) : "Cameo Chem" %></title>
+    <title><%= content_for?(:title) ? yield(:title) : "Cameo Chemicals LLC" %></title>
     <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Cameo Chem" %>">
+
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
-    
+
     <!--insert the Stripe JavaScript partial as needed -->
     <%= yield(:head) %>
-
   </head>
-  <body>
-    <%= render 'layouts/messages' %>
 
-    <%= image_tag "logo.png", :width => "80%" %>
+  <body class='wsite-theme-light tall-header-page wsite-page-index'>
 
-    <header>
-      <%= render 'layouts/navigation' %>
-    </header>
+    <div class="header-wrap">
+      <div class="container">
+        <%= render 'layouts/messages' %>
+        <table id="header">
+          <tr>
+            <td id="logo"><span class='wsite-logo'><span id="wsite-title">Cameo Chemicals LLC<br /></span></span></td>
+            <td id="header-right">
+              <table>
+                <tr>
+                  <td class="phone-number"></td>
+                  <td class="social"></td>
+                  <td class="search"></td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
 
+    <div class="main-wrap">
+      <div class="container">
 
-    <div class="container">
-      <%= yield %>
-      <%= render 'layouts/footer' %>
+        <div id="main">
+          <div id="banner">
+            <div class="wsite-header"></div>
+          </div>
+
+          <div id="navigation">
+            <ul class='wsite-menu-default'>
+              <li><%= link_to 'Home', root_path %></li>
+              <%= render 'layouts/industry_links' %>
+              <li><%= link_to 'Contact Us', root_path %></li>
+              <%= render 'layouts/navigation_links' %>
+            </ul>
+            <div class="clear"></div>
+          </div>
+
+          <div id="content">
+            <!--Rendered Content -->
+            <%= yield %>
+            <div class="clear"></div>
+          </div>
+
+          <div id="footer">
+
+            <%= render 'layouts/footer' %>
+            <div class="clear"></div>
+          </div>
+
+        </div>
+      </div>
+
     </div>
   </body>
+
+
 </html>
