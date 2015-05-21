@@ -34,8 +34,8 @@ class OrdersController < ApplicationController
         @order.make_payment
 
         # Tell the UserMailer to send a welcome email after save
-        OrderMailer.order_confirmation(@order).deliver_now
-        AdminOrderMailer.order_confirmation(@order, @admin).deliver_now
+        #OrderMailer.order_confirmation(@order).deliver_now
+        #AdminOrderMailer.order_confirmation(@order, @admin).deliver_now
 
         #--- Clear Session ---
         session[:order_id] = nil

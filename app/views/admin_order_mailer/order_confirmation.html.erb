@@ -6,10 +6,36 @@
 <body>
   <h1>Cameo Chemicals Order#:<%= @order.id %></h1>
   <p>
-    <%= @user.company%> has placed an Order.
+    Attention <%= @user.company%>, has placed an order.
   </p>
-  <p>
-    Total: <%= @order.total %>.<br>
-  </p>
-</body>
+
+  <h4>Order Details</h4>
+  <table>
+    <tr>
+      <td><b>Product Name</b></td>
+    </tr>
+    <% @order.order_items.each do |order_item| %>
+    <tr>
+      <td><%= order_item.product.name %></td>
+    </tr>
+    <% end %>
+
+    <tr>
+      <td>
+        <td><b>Subtotal: </b></td>
+        <td><%= number_to_currency @order.subtotal %></td>
+      </tr>
+      <tr>
+        <td>
+          <td><b>Tax: </b></td>
+          <td> <%= number_to_currency @order.tax %></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><b>Total Due: </b></td>
+          <td><%= number_to_currency @order.total %></td>
+        </tr>
+      </table>
+
+    </body>
 </html>
