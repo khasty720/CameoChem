@@ -2,7 +2,7 @@ class OrdersController < ApplicationController
   before_filter :authenticate_user!
 
   def index
-    @order = Order.all
+    @orders = Order.get_orders(@admin, current_user)
   end
 
   def show
@@ -12,6 +12,15 @@ class OrdersController < ApplicationController
   end
 
   def edit
+  end
+
+  def view
+    #unless (@admin == current_user || @order.user_id = current_user.id)
+    #  redirect_to root_path, :alert => "Access denied."
+    #end
+
+    @order = Order.find params[:id]
+    @user = @order.get_user
   end
 
   def update

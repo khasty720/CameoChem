@@ -1,0 +1,22 @@
+<div class="checkout">
+  <h2 class="text-center">Order #<%= @order.id%></h2>
+
+  <!-- Row One -->
+  <div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-xs-6 col-sm-4">
+      <%= render 'user_detail'%>
+
+    </div>
+
+
+    <div class="col-xs-6 col-sm-4">
+      <%= render 'total_due'%>
+    </div>
+
+  </div>
+
+  <br>
+
+  <br>
+</div>

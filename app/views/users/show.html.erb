@@ -1,3 +1,12 @@
-<h3>Account Information</h3>
-<p>Email: <%= @user.email if @user.email %></p>
-<p>Company: <%= @user.company if @user.company %></p>
+<h3 class="text-center">Account Information</h3>
+<p><b>First Name:</b> <%= @user.first_name %></p>
+<p><b>Last Name:</b> <%= @user.last_name %></p>
+<p><b>Email:</b> <%= @user.email if @user.email %></p>
+<p><b>Company:</b> <%= @user.company if @user.company %></p>
+<fieldset>
+<p><b>Street:</b> <%= @user.street %></p>
+<p><b>City:</b> <%= @user.city %></p>
+<p><b>State:</b> <%= @user.state %></p>
+<p><b>Zip:</b> <%= @user.zip %></p>
+<p><b>Country:</b> <%= @user.country %></p>
+</fieldset>

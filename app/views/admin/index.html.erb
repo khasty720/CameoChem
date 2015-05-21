@@ -1,35 +1,35 @@
 
-<h2 class="page-header text-center">Site Configurator</h2>
+<h2 class="page-header text-center">Site Administration</h2>
 </br>
 <div>
   <div class="wsite-multicol"><div class='wsite-multicol-table-wrap' style='margin:0 -15px'>
-  <table style="margin-top:10px; margin-left:200px;">
+  <table style="margin-top:10px; margin-left:260px;">
     <tbody class='wsite-multicol-tbody'>
 
       <tr class='wsite-multicol-tr'>
         <td class='wsite-multicol-col' style='width:50%;padding:0 15px'>
-          <%= link_to 'Manage Users', users_path, :class => "btn btn-lg btn-block btn btn-default" %>
+          <%= link_to 'Users', users_path, :class => "btn btn-lg btn-block btn btn-default" %>
         </td>
         <td class='wsite-multicol-col' style='width:50%;padding:0 15px'>
-          <%= link_to 'Manage Categories', categories_path, :class => "btn btn-lg btn-block btn-default" %>
-        </td>
-      </tr>
-
-      <tr class='wsite-multicol-tr'>
-        <td class='wsite-multicol-col' style='width:50%;padding:0 15px'>
-          <%= link_to 'Manage Products', products_path, :class => "btn btn-lg btn-block btn-default" %>
-        </td>
-        <td class='wsite-multicol-col' style='width:50%;padding:0 15px'>
-          <%= link_to 'Manage Groups', groups_path, :class => "btn btn-lg btn-block btn-default" %>
+          <%= link_to 'Industries', categories_path, :class => "btn btn-lg btn-block btn-default" %>
         </td>
       </tr>
 
       <tr class='wsite-multicol-tr'>
         <td class='wsite-multicol-col' style='width:50%;padding:0 15px'>
-          <%= link_to 'Manage Product Prices', product_prices_path, :class => "btn btn-lg btn-block btn-default" %>
+          <%= link_to 'Products', products_path, :class => "btn btn-lg btn-block btn-default" %>
         </td>
         <td class='wsite-multicol-col' style='width:50%;padding:0 15px'>
-          <%= link_to 'Manage Orders', root_path, :class => "btn btn-lg btn-block btn-default" %>
+          <%= link_to 'Industry Groups', groups_path, :class => "btn btn-lg btn-block btn-default" %>
+        </td>
+      </tr>
+
+      <tr class='wsite-multicol-tr'>
+        <td class='wsite-multicol-col' style='width:50%;padding:0 15px'>
+          <%= link_to 'User Prices', product_prices_path, :class => "btn btn-lg btn-block btn-default" %>
+        </td>
+        <td class='wsite-multicol-col' style='width:50%;padding:0 15px'>
+          <%= link_to 'Orders', orders_path, :class => "btn btn-lg btn-block btn-default" %>
         </td>
       </tr>
     </tbody>

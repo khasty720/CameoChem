@@ -15,6 +15,14 @@ class Order < ActiveRecord::Base
     order_items.collect { |oi| oi.valid? ? (oi.quantity * oi.unit_price) : 0 }.sum
   end
 
+  def self.get_orders(admin,user)
+    if (admin == user)
+      return Order.all
+    else
+      return Order.where("user_id = ?", user.id)
+    end
+  end
+
   def set_user(user)
     self[:user_id] = user.id
   end

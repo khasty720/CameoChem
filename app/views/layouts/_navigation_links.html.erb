@@ -11,7 +11,9 @@
       <li><%= link_to 'Sign out', destroy_user_session_path, :method=>'delete' %></li>
       <li><%= link_to 'My Account', user_path(current_user) %></li>
       <% if is_admin %>
-      <li><%= link_to 'App Manager', admin_index_path %></li>
+      <li><%= link_to 'Administration', admin_index_path %></li>
+      <% else %>
+      <li><%= link_to 'My Orders', orders_path %></li>
       <% end %>
       <% else %>
       <li><%= link_to 'Sign in', new_user_session_path %></li>
