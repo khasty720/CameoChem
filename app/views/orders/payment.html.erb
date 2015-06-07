@@ -1,7 +1,7 @@
 <h2 class="text-center">Payment Information</h2>
-
+</br>
 <div class="row">
-  <div class="col-md-12">
+
 
     <% content_for :head do %>
     <%= render 'javascript' %>
@@ -21,7 +21,7 @@
       </div>
       <% end %>
 
-      <div class="col-md-5">
+      <div class="col-md-8">
         <fieldset>
 
 
@@ -48,24 +48,24 @@
           <br />
           <%= f.hidden_field :stripe_token %>
         </fieldset>
-        
-        <%=link_to image_tag('solid.png', :size => :med), 'https://stripe.com/us/features#seamless-security'%>
-      </div>
 
+        </div>
     </div>
-  </div>
+    <div class="col-md-4">
+      <%=link_to image_tag('stripe_lock.png', :size => :med), 'https://stripe.com/us/features#seamless-security'%>
+    </div>
 </div>
 
 
 <div class="row">
-  <div class="col-md-4"></div>
-  <div class="col-md-4">
+
+  <div class="col-md-2">
     <div class="actions">
       <%= f.submit "Submit Order", :class => "btn btn-default", 'data-disable-with' => "Please wait.." %>
       <% end %>
     </div>
   </div>
-  <div class="col-md-4">
+  <div class="col-md-2">
     <%= link_to 'Cancel Order', @order, method: :delete, data: { confirm: 'Are you sure?' },
     :class => "btn btn-default"  %>
   </div>
