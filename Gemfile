@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 gem 'mail_form'
 gem 'simple_form'
-gem 'aws-sdk'
+gem 'aws-sdk', '< 2.0'
 
 #--- Stripe ---
 gem 'high_voltage'
