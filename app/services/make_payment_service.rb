@@ -4,7 +4,8 @@ class MakePaymentService
 
     if !order.stripe_token.present?
       order.errors[:base] << 'Could not verify card.'
-      raise ActiveRecord::RecordInvalid.new(order)
+      return false
+      #raise ActiveRecord::RecordInvalid.new(order)
     end
 
     customer = create_customer(order)
@@ -15,11 +16,13 @@ class MakePaymentService
   rescue Stripe::InvalidRequestError => e
     order.errors[:base] << e.message
     order.stripe_token = nil
-    raise ActiveRecord::RecordInvalid.new(order)
+    return false
+    #raise ActiveRecord::RecordInvalid.new(order)
   rescue Stripe::CardError => e
     order.errors[:base] << e.message
     order.stripe_token = nil
-    raise ActiveRecord::RecordInvalid.new(order)
+    return false
+    #raise ActiveRecord::RecordInvalid.new(order)
   end
 
   def create_customer(order)

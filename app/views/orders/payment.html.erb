@@ -9,6 +9,8 @@
 
     <div class="form">
       <%= form_for([ :update_payment, @order ], :html => { :role => 'form', :class => 'payment-form'}) do |f| %>
+
+
       <% if @order.errors.any? %>
       <div id="error_explanation">
         <h2><%= pluralize(@order.errors.count, "error") %> prohibited this group from being saved:</h2>

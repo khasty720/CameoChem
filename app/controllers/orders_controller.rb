@@ -62,9 +62,9 @@ class OrdersController < ApplicationController
       if @order.update(order_params)
 
         #---- Process Payment ----
-        @order.make_payment
+        if @order.make_payment
 
-        # Tell the UserMailer to send a welcome email after save
+        # Tell the UserMailer to send email
         OrderMailer.order_confirmation(@order).deliver_now
         AdminOrderMailer.order_confirmation(@order, @admin).deliver_now
 
@@ -73,9 +73,13 @@ class OrdersController < ApplicationController
 
         format.html { redirect_to root_path, notice: 'Order was submitted successfully.' }
         format.json { render :show, status: :ok, location: @order }
+      else
+        format.html { render :payment }
+        format.json { render json: @order.errors, status: :unprocessable_entity }
+      end
 
       else
-        format.html { render :edit }
+        format.html { render :payment }
         format.json { render json: @order.errors, status: :unprocessable_entity }
       end
     end

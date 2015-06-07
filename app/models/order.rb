@@ -33,7 +33,11 @@ class Order < ActiveRecord::Base
   end
 
   def make_payment
-    MakePaymentService.new.perform(self)
+    if MakePaymentService.new.perform(self)
+      return true
+    else
+      return false
+    end
   end
 
   def incriment_order_status
