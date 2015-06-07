@@ -1,5 +1,5 @@
 <div class="row">
-<div class="col-md-12">
+<div class="col-md-12" style="padding-left: 150px;">
 
 <% content_for :head do %>
   <%= render 'javascript' %>
@@ -19,18 +19,20 @@
   </div>
   <% end %>
 
-<div class="col-md-5">
-      <fieldset>
+<div>
+    <fieldset style="width: 300px;">
     <h4 class="text-left">Shipping Address</h4>
     <%= render 'ship_addr_form', :f => f %>
   </fieldset>
 </div>
 
+<!--
   <div class="col-md-5">
     <fieldset>
     <%= render 'payment_form', :f => f %>
     </fieldset>
   </div>
+-->
 
   </div>
  </div>
@@ -40,7 +42,7 @@
     <div class="col-md-4"></div>
     <div class="col-md-4">
     <div class="actions">
-      <%= f.submit "Submit Order", :class => "btn btn-default", 'data-disable-with' => "Please wait.." %>
+      <%= f.submit "Proceed to Payment", :class => "btn btn-default", 'data-disable-with' => "Please wait.." %>
       <% end %>
     </div>
   </div>

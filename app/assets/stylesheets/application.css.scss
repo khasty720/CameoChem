@@ -52,6 +52,9 @@
    text-decoration: none;
  }
 
+ 
+ .hidden { display: none; }
+
  /* General Styling and Structure
  --------------------------------------------------------------------------------*/
 
@@ -450,7 +453,7 @@
    padding-top: 4px;
  }
 
-//Adjust Banner to add height 
+//Adjust Banner to add height
 
  #banner {
    position: relative;

@@ -19,13 +19,25 @@ Rails.application.routes.draw do
   resources :product_prices
   resources :categories
   resources :groups
-  resources :orders
+
+  resources :orders do
+    patch :update_payment, on: :member
+  end
+
+
 
   resource :cart, only: [:show]
   resources :order_items, only: [:create, :update, :destroy]
 
   #Custom Order Methods
   get '/orders/view/:id', to: 'orders#view', as: 'view_order'
+  get '/orders/payment/:id', to: 'orders#payment', as: 'payment_order'
+
+  #Contact Us
+  #get 'welcome/contacts', to: 'welcome#contact', as: 'contact_us'
+
+  match '/contacts', to: 'contacts#new', via: 'get'
+  resources "contacts", only: [:new, :create]
 
 
   # The priority is based upon order of creation: first created -> highest priority.

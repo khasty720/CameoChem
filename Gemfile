@@ -1,5 +1,8 @@
 source 'https://rubygems.org'
 
+gem 'mail_form'
+gem 'simple_form'
+
 #--- Stripe ---
 gem 'high_voltage'
 gem 'stripe'

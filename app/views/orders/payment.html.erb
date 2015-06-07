@@ -1,0 +1,71 @@
+<h2 class="text-center">Payment Information</h2>
+
+<div class="row">
+  <div class="col-md-12">
+
+    <% content_for :head do %>
+    <%= render 'javascript' %>
+    <% end %>
+
+    <div class="form">
+      <%= form_for([ :update_payment, @order ], :html => { :role => 'form', :class => 'payment-form'}) do |f| %>
+      <% if @order.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@order.errors.count, "error") %> prohibited this group from being saved:</h2>
+
+        <ul>
+          <% @order.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+      <% end %>
+
+      <div class="col-md-5">
+        <fieldset>
+
+
+          <div id='stripe_error' class='alert alert-danger' style='display:none' ></div>
+
+          <% if @order.stripe_token %>
+          <p>Credit card acceptance is pending.</p>
+          <% else %>
+          <div class="form-group">
+            <%= label_tag :card_number, "Credit Card Number" %>
+            <%= text_field_tag :card_number, nil, name: nil, class: 'form-control', data: { stripe: 'number' } %>
+          </div>
+          <div class="form-group">
+            <%= label_tag :card_code, "Card Security Code" %>
+            <%= text_field_tag :card_code, nil, name: nil, class: 'form-control', data: { stripe: 'cvc' } %>
+          </div>
+          <br />
+          <div class="form-group">
+            <%= label_tag :card_month, "Card Experation" %>
+            <%= select_month nil, { use_two_digit_numbers: true}, { name: nil, data: {stripe: 'exp-month' } } %>
+            <%= select_year nil, {start_year: Date.today.year, end_year: Date.today.year+10}, { name: nil, data: {stripe: 'exp-year' } } %>
+          </div>
+          <% end %>
+          <br />
+          <%= f.hidden_field :stripe_token %>
+        </fieldset>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-4"></div>
+  <div class="col-md-4">
+    <div class="actions">
+      <%= f.submit "Submit Order", :class => "btn btn-default", 'data-disable-with' => "Please wait.." %>
+      <% end %>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <%= link_to 'Cancel Order', @order, method: :delete, data: { confirm: 'Are you sure?' },
+    :class => "btn btn-default"  %>
+  </div>
+
+
+</div>

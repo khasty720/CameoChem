@@ -31,6 +31,37 @@ class OrdersController < ApplicationController
       if @order.update(order_params)
 
         #---- Process Payment ----
+        #@order.make_payment
+
+        # Tell the UserMailer to send a welcome email after save
+        #OrderMailer.order_confirmation(@order).deliver_now
+        #AdminOrderMailer.order_confirmation(@order, @admin).deliver_now
+
+        #--- Clear Session ---
+        session[:order_id] = nil
+
+        format.html { redirect_to payment_order_path(@order), notice: 'Shipping info updated succesfully.' }
+        format.json { render :show, status: :ok, location: @order }
+      else
+        format.html { render :edit }
+        format.json { render json: @order.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  def payment
+    #@order = current_order
+    @order = Order.find params[:id]
+    @user = @order.get_user
+  end
+
+  def update_payment
+    @order = Order.find params[:id]
+
+    respond_to do |format|
+      if @order.update(order_params)
+
+        #---- Process Payment ----
         @order.make_payment
 
         # Tell the UserMailer to send a welcome email after save
@@ -48,6 +79,8 @@ class OrdersController < ApplicationController
       end
     end
   end
+
+
 
   # DELETE /categories/1
   # DELETE /categories/1.json
