@@ -37,6 +37,16 @@ ActiveRecord::Schema.define(version: 20150427012026) do
 
   add_index "groups", ["category_id"], name: "index_groups_on_category_id", using: :btree
 
+  create_table "groups_products", force: :cascade do |t|
+    t.integer  "product_id"
+    t.integer  "group_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "groups_products", ["group_id"], name: "index_groups_products_on_group_id", using: :btree
+  add_index "groups_products", ["product_id"], name: "index_groups_products_on_product_id", using: :btree
+
   create_table "order_items", force: :cascade do |t|
     t.integer  "product_id"
     t.integer  "order_id"
@@ -128,6 +138,8 @@ ActiveRecord::Schema.define(version: 20150427012026) do
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   add_foreign_key "groups", "categories"
+  add_foreign_key "groups_products", "groups"
+  add_foreign_key "groups_products", "products"
   add_foreign_key "order_items", "orders"
   add_foreign_key "order_items", "products"
   add_foreign_key "orders", "order_statuses"
