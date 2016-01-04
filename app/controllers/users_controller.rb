@@ -13,5 +13,11 @@ class UsersController < ApplicationController
     unless @user == current_user || @admin == current_user
       redirect_to root_path, :alert => "Access denied."
     end
+
+      respond_to do |format|
+          format.html # show.html.erb
+          format.js # show.js.erb
+      end
+
   end
 end

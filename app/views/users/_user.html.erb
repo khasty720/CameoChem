@@ -1,2 +1,13 @@
 
-<div class="col-md-3"><%= link_to user.company, user %></div>
+<div class="col-md-9">
+
+<%#= link_to user.company, user %>
+<section id="users-section">
+<h3 class="text-center"><%= link_to user.company, "#", remote: true, id: "user-link" %></h3>
+
+    <div id="user-info" tabindex='1'>
+      <%= render 'show_user', :user => user%>
+    </div>
+
+</section>
+</div>
