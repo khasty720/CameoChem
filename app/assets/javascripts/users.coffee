@@ -2,7 +2,9 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
-$(document).on "page:change", ->
-  $('#user-link').click ->
-    $('#user-info').fadeToggle()
-    $('#user-info').focus()
+#$(document).on "page:change", ->
+#  $('#user-link').click ->
+#    $('#user-info').fadeToggle()
+    #$('#user-info').focus()
+
+ 

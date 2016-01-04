@@ -1,13 +1,27 @@
-
+<!--
 <div class="col-md-9">
 
 <%#= link_to user.company, user %>
 <section id="users-section">
-<h3 class="text-center"><%= link_to user.company, "#", remote: true, id: "user-link" %></h3>
+<h3 class="text-center"><%= link_to user.company, "#", id: "user-link" %></h3>
 
-    <div id="user-info" tabindex='1'>
+    <div id="user">
       <%= render 'show_user', :user => user%>
     </div>
 
 </section>
 </div>
+-->
+
+<p><b>Account Information</b></p>
+<p>First Name: <%= user.first_name %></p>
+<p>Last Name: <%= user.last_name %></p>
+<p>Email: <%= user.email if user.email %></p>
+<p>Company: <%= user.company if user.company %></p>
+<fieldset>
+<p>Street: <%= user.street %></p>
+<p>City: <%= user.city %></p>
+<p>State: <%= user.state %></p>
+<p>Zip: <%= user.zip %></p>
+<p>Country: <%= user.country %></p>
+</fieldset>

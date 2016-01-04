@@ -1,1 +1,3 @@
-$("#user-info").html("<%= escape_javascript(render @user) %>");
+$('#user').hide().fadeIn('slow');
+//$('#user').hide().animate({backgroundColor: '#FF0000'}, 'slow')
+$("#user").html("<%= escape_javascript(render @user) %>");

@@ -1,15 +1,28 @@
 <div class="container">
   <div class="row">
     <h3 class="text-center">Users</h3>
-    
+
     <div class="column" >
       <ul class="list-group">
         <% @users.each do |user| %>
         <li class="list-group-item row">
-          <%= render user %>
+
+          <div class="col-md-9">
+
+          <section id="users-section">
+          <h3 class="text-center"><%= link_to user.company, user_path(user), remote: true %></h3>
+
+          </section>
+          </div>
+
         </li>
         <% end %>
       </ul>
+    </div>
+
+    <!--Rendered Users Info -->
+    <div class="column" id="user">
+
     </div>
   </div>
 </div>
